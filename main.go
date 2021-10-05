@@ -5,11 +5,27 @@ import(
   //"strings"
 )
 
+type person struct{
+  name string
+  age int
+}
+
 func main() {
-  a := 2
-  b := &a 
-  *b = 5 //애스터리스크를 사용하면 해당 변수의 값을 주소로하는 변수에 접근 하는 개념 
-  //즉 특정변수의 메모리 주소를 가진 변수가 해당 변수의 포인터이다.
-  fmt.Println(a);
-  
+  //Array
+  nameArray := [2]string{"a","b"}
+  fmt.Println(nameArray[0])
+
+  //Slice
+  names := []string{"a", "b", "c"} //slice(type) : 크기제한이 없는 array
+  names = append(names, "d") //새로운 요소를 추가한 새로운 배열을 리턴
+  fmt.Println(names)
+
+  //map
+  choi := map[string]string{"name" : "choi", "age" : "22"} 
+  fmt.Println(choi)
+
+  //struct
+  junYoung := person{"jun", 22}
+  changHoon := person{name : "changHoon", age : 20}
+  fmt.Println(junYoung.name, changHoon)
 }
