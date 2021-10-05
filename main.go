@@ -6,25 +6,10 @@ import(
 )
 
 func main() {
-  fmt.Println(checkAdult(16), checkAdultSwitch(16));
-}
-
-//If else
-func checkAdult(age int) (isOk bool){
-  if koreanAge := age + 2; koreanAge < 18{
-    return false;
-  } else if koreanAge < 19{ //koreanAge는 사실상 if문 밖에서 선언한 것과 같은 효과를 낸다.
-    fmt.Println("that's close bro hahaha")
-    return true
-  } else {
-    return true
-  }
-}
-
-func checkAdultSwitch(age int) bool {
-  switch koreanAge := age + 2; koreanAge{
-    case 18:
-      return false
-  }
-  return true 
+  a := 2
+  b := &a 
+  *b = 5 //애스터리스크를 사용하면 해당 변수의 값을 주소로하는 변수에 접근 하는 개념 
+  //즉 특정변수의 메모리 주소를 가진 변수가 해당 변수의 포인터이다.
+  fmt.Println(a);
+  
 }
