@@ -5,27 +5,28 @@ import(
   //"strings"
 )
 
-type person struct{
+type Account struct{ //small scare name of property is private property
   name string
-  age int
+  money int
+}
+
+func CreateAccount(name string) *Account{
+  account := Account{name : name, money : 0}
+  return &account;
+}
+
+//automatically be method of Account because of struct receiver
+func (receiver *Account) Deposit(amount int){
+  receiver.money = amount;
 }
 
 func main() {
-  //Array
-  nameArray := [2]string{"a","b"}
-  fmt.Println(nameArray[0])
 
-  //Slice
-  names := []string{"a", "b", "c"} //slice(type) : 크기제한이 없는 array
-  names = append(names, "d") //새로운 요소를 추가한 새로운 배열을 리턴
-  fmt.Println(names)
+  //Method
+  accountChoi := CreateAccount("choi");
+  fmt.Println(accountChoi);
 
-  //map
-  choi := map[string]string{"name" : "choi", "age" : "22"} 
-  fmt.Println(choi)
-
-  //struct
-  junYoung := person{"jun", 22}
-  changHoon := person{name : "changHoon", age : 20}
-  fmt.Println(junYoung.name, changHoon)
+  //use Deposit as method !!
+  accountChoi.Deposit(1000);
+  fmt.Println(accountChoi);
 }
